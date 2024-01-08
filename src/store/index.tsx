@@ -7,6 +7,7 @@ import logger from 'redux-logger';
 // Root reducer
 import rootReducer from './rootReducer';
 
-const enhancer: StoreEnhancer = compose(applyMiddleware(thunk as ThunkMiddleware, logger));
+const enhancer: StoreEnhancer = compose(applyMiddleware(thunk as ThunkMiddleware, logger as never));
 
-export default createStore(rootReducer, {}, enhancer);
+const store = createStore(rootReducer, {}, enhancer);
+export default store;
